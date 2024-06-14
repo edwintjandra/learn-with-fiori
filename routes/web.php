@@ -10,6 +10,6 @@ Route::get('/i', function () {
     return view('signin');
 });
 
-Route::get('/app',function(){
-    return view('app');
+Route::get('/fiori',function(){
+    return view('fiori');
 });
