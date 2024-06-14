@@ -13,10 +13,4 @@ Route::get('/fiori',function(){
     return view('fiori');
 });
 
-Route::get('/fiori',function(){
-    return view('fiori');
-});
-
-Route::get('/fiori',function(){
-    return view('fiori');
-});
+ 
