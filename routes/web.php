@@ -7,6 +7,7 @@ Route::get('/', [UserController::class, 'index']);
 Route::post('/', [UserController::class, 'signup'])->name('signup');
 Route::get('/signin', [UserController::class, 'signinPage'])->name('signinPage');
 Route::post('/signin', [UserController::class, 'signin'])->name('signin');
+Route::middleware('auth')->post('/profile', [UserController::class, 'updateProfile'])->name('updateProfile');
 
 Route::get('/app',function(){
     return view('app');

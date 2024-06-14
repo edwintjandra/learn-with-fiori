@@ -15,12 +15,14 @@ class UserController extends Controller
     public function signup(Request $request) {
         $request->validate([
             'name' => 'required',
+            'phonenumber' => "required",
             'email' => 'required',
             'password' => 'required',
         ]);
 
         $user= new User();
         $user->name= $request['name'];
+        $user->name= $request['phonenumber'];
         $user->email= $request['email'];
         $user->password= $request['password'];
 
@@ -35,7 +37,7 @@ class UserController extends Controller
 
     public function signin(Request $request) {
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required',
             'password' => 'required',
         ]);
     
@@ -44,5 +46,24 @@ class UserController extends Controller
         } else {
             return back()->withErrors(['error' => 'Invalid email or password.']); 
         }
+    }
+
+    public function updateProfile(Request $request) {
+        $user = Auth::user();
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required' . $user->id,
+            'password' => 'required',
+        ]);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->input('password'));
+        }
+    
+        $user->save();
     }
 }
