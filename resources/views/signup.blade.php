@@ -54,7 +54,7 @@
         <button id="continueButton" class="mt-2 w-[360px] py-[8px] flex justify-center font-nunito text-base text-custom-white bg-custom-blue rounded-md hover:bg-custom-hover disabled:opacity-50 disabled:cursor-not-allowed" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);" disabled>
             Continue
         </button>
-        <p class="font-nunito text-base text-custom-black font-normal">Already have an account? <span class="font-bold hover:text-custom-hover"><a href=""> Sign in</a></span></p>
+        <p class="font-nunito text-base text-custom-black font-normal">Already have an account? <span class="font-bold hover:text-custom-hover"><a href="{{ route('signinPage') }}"> Sign in</a></span></p>
     </form>
 
 </section>

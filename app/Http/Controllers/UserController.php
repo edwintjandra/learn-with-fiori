@@ -26,6 +26,23 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('/');
+        return redirect('/signin');
+    }
+
+    public function signinPage() {
+        return view('signin');
+    }
+
+    public function signin(Request $request) {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+    
+        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            return redirect('/fiori'); 
+        } else {
+            return back()->withErrors(['error' => 'Invalid email or password.']); 
+        }
     }
 }
