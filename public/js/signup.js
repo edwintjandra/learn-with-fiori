@@ -27,12 +27,14 @@ ctogglePassword.addEventListener("click", function () {
 document.addEventListener('DOMContentLoaded', function () {
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
+    const telInput = document.getElementById('phone');
     const passwordInput = document.getElementById('password');
     const cpasswordInput = document.getElementById('cpassword');
     const continueButton = document.getElementById('continueButton');
 
     const nameError = document.getElementById('nameError');
     const emailError = document.getElementById('emailError');
+    const telError = document.getElementById('phoneError');
     const passwordError = document.getElementById('passwordError');
     const cpasswordError = document.getElementById('cpasswordError');
 
@@ -54,6 +56,15 @@ document.addEventListener('DOMContentLoaded', function () {
             emailError.classList.add('hidden');
         }
 
+        const telPattern = /^08\d{7,13}$/;
+        if (!telPattern.test(telInput.value)) {
+            telError.classList.remove('hidden');
+            isValid = false;
+        } else {
+            telError.classList.add('hidden');
+        }
+        
+
         if (passwordInput.value.length < 6) {
             passwordError.classList.remove('hidden');
             isValid = false;
@@ -73,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     nameInput.addEventListener('input', validateForm);
     emailInput.addEventListener('input', validateForm);
+    telInput.addEventListener('input', validateForm);
     passwordInput.addEventListener('input', validateForm);
     cpasswordInput.addEventListener('input', validateForm);
 });

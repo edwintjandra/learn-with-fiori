@@ -13,7 +13,7 @@
 <body class="bg-gradient-to-r from-[#EEF2F5] to-[#E7F5FF]">
 <section class="flex flex-row min-h-screen">
 
-<x-no-acc-navbar page="fiori" />
+<x-acc-navbar page="fiori" />
 
     <!-- Content area -->
     <x-with-content page="fiori" />
@@ -23,9 +23,9 @@
     <div class="w-full flex justify-center fixed bottom-10 right-0 left-28">
             <form action="">
                 <div class="flex flex-row gap-3">
-                    <input type="text" id="prompt" class="bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-base w-[720px] placeholder:text-custom-blue text-wrap" placeholder="Ask customer's question"/>
+                    <input type="text" id="prompt" class="bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-base w-[720px] placeholder:text-custom-blue text-wrap" placeholder="Insert message here"/>
                     <button id="ask" class="px-[16px] py-[8px] flex justify-center font-nunito text-base text-custom-white bg-custom-blue rounded-md hover:bg-custom-hover disabled:opacity-50 disabled:cursor-not-allowed" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);" disabled>
-                    Ask
+                    Send
                     </button>
                 </div> 
             </form>

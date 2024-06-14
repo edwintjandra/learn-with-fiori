@@ -31,6 +31,11 @@
             <p class="text-custom-red font-nunito text-sm hidden" id="emailError">Email Invalid!</p>
         </div> 
         <div class="flex flex-col gap-1">
+            <label for="phone" class="block font-nunito text-base text-custom-black">Phone Number</label>
+            <input type="tel" id="phone" class="bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-sm w-[360px] placeholder:text-custom-blue" placeholder="Enter your phone number"/>
+            <p class="text-custom-red font-nunito text-sm hidden" id="phoneError">Phone Number Invalid!</p>
+        </div> 
+        <div class="flex flex-col gap-1">
             <label for="password" class="block font-nunito text-base text-custom-black">Password</label>
             <div class="relative">
                <input type="password" id="password" class="bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-sm w-[360px] placeholder:text-custom-blue" placeholder="Enter your password">

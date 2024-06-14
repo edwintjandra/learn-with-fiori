@@ -12,8 +12,8 @@
 
         <div class="flex flex-col justify-between mt-6 font-nunito gap-2">
             <h1 class="text-lg text-custom-white font-bold">History</h1>
-            <a href="" class="text-custom-blue text-base cursor-pointer hover:text-custom-hover">6/14/2024 - 16:00</a>
-            <a href="" class="text-custom-white text-base cursor-pointer hover:text-custom-hover">2/14/2022 - 11:00</a>
+            <a href="" class="text-custom-blue text-base cursor-pointer hover:text-custom-hover">+62 832132312332</a>
+            <a href="" class="text-custom-white text-base cursor-pointer hover:text-custom-hover">+62 07099707098</a>
         </div>
 
 
