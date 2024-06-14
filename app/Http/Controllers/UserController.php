@@ -22,7 +22,7 @@ class UserController extends Controller
 
         $user= new User();
         $user->name= $request['name'];
-        $user->name= $request['phonenumber'];
+        $user->phonenumber= $request['phonenumber'];
         $user->email= $request['email'];
         $user->password= $request['password'];
 

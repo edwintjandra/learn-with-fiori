@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Sign Up</title>
     @vite('resources/css/app.css')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,6 +30,11 @@
             <label for="email" class="block font-nunito text-base text-custom-black">Email</label>
             <input type="email" id="email" name="email" class="bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-sm w-[360px] placeholder:text-custom-blue" placeholder="Enter your email"/>
             <p class="text-custom-red font-nunito text-sm hidden" id="emailError">Email Invalid!</p>
+        </div> 
+        <div class="flex flex-col gap-1">
+            <label for="phone" class="block font-nunito text-base text-custom-black">Phone Number</label>
+            <input type="tel" id="phone" name="phonenumber" class="bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-sm w-[360px] placeholder:text-custom-blue" placeholder="Enter your phone number"/>
+            <p class="text-custom-red font-nunito text-sm hidden" id="phoneError">Phone Number Invalid!</p>
         </div> 
         <div class="flex flex-col gap-1">
             <label for="password" class="block font-nunito text-base text-custom-black">Password</label>
