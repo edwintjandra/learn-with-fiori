@@ -57,6 +57,6 @@
 
 </section>
 
-<script src="{{ asset('js/signin.js') }}"></script>    
+<script src="{{ asset('js/signup.js') }}"></script>    
 </body>
 </html>
