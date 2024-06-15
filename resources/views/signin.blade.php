@@ -36,7 +36,7 @@
             </div>
             <p class="text-custom-red font-nunito text-sm hidden" id="passwordError">Password Invalid!</p>
         </div> 
-        <button id="continueButton" class="mt-2 w-[360px] py-[8px] flex justify-center font-nunito text-base text-custom-white bg-custom-blue rounded-md hover:bg-custom-hover disabled:opacity-50 disabled:cursor-not-allowed" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);" disabled>
+        <button id="continueButton" class="max-h-10 mt-2 w-[360px] py-[8px] flex justify-center font-nunito text-base text-custom-white bg-custom-blue rounded-md hover:bg-custom-hover disabled:opacity-50 disabled:cursor-not-allowed" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);" disabled>
             Continue
         </button>
      </form>
