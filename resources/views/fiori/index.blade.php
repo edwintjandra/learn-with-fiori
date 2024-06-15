@@ -39,123 +39,19 @@
                     </div>
                 </div>
 
-                 <!-- response from fiori send -->
-                 <div class="response flex gap-2 mb-5 items-start">
-                    <img src="{{ asset('assets/Fiori.svg') }}" alt="" class="w-10">
-                    <div class="">
-                        <div class="flex flex-col mb-3">
-                            <p class="text-left w-[672px] bg-[#E8EAEC] border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-[#919394] text-sm resize-none text-wrap min-h-40" unchange>edwin suka bakso pake pecel</p>
-                            <button class="copy-button text-custom-grey focus:outline-none mt-1 flex text-sm gap-2">
-                            Sent 16:50 - 15/06/2024
-                                <svg width="18" height="18" viewBox="0 0 24 24" class="fill-none hover:fill-custom-hover" xmlns="http://www.w3.org/2000/svg"><path opacity="0.16" d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="fill-[#66C2FF] hover:fill-custom-hover"/><path d="M16 3H4V16" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="dropdown">
-                            <ul class="flex flex-col gap-4">
-                                <li>
-                                    <details class="group rounded-md bg-[#E9F5FC]"
-                                        style="box-shadow: 2px 4px 12px 0px rgba(181, 184, 185, 0.14);">
-                                        <summary
-                                            class="flex items-center gap-3 px-3 py-3 font-medium marker:content-none hover:cursor-pointer">
-                                            <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90"
-                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                class="fill-[#C9CCCE]" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                                                </path>
-                                            </svg>
-                                            <span class="text-custom-blue font-nunito text-base font-medium">
-                                                Summarized</span>
-                                        </summary>
-
-                                        <article class="px-4 pb-4 text-sm">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ipsum
-                                                sapien. Vestibulum molestie
-                                                porttitor augue vitae vulputate. Aliquam nec ex maximus, suscipit diam
-                                                vel, tristique tellus. Lorem ipsum dolor sit amet consectetur
-                                                adipisicing elit. Ipsa officiis blanditiis placeat repudiandae eum ab
-                                                modi itaque dignissimos ex perferendis. Officia dolores obcaecati magnam
-                                                deleniti quod incidunt repellat odio. Itaque illum animi doloribus,
-                                                nihil temporibus sunt. Ea, a, nesciunt alias quidem, aliquam aspernatur
-                                                dolorum nulla delectus recusandae explicabo nam minus perspiciatis sed.
-                                                Delectus excepturi quam magni quo laboriosam minima consequuntur iste a
-                                                suscipit et ea vitae enim molestias tempora, nostrum eveniet animi,
-                                                reprehenderit non earum obcaecati. Unde, ab id. Numquam perspiciatis
-                                                ipsam at obcaecati vero velit est eius praesentium ipsa debitis
-                                                repellendus eos necessitatibus soluta suscipit, architecto repudiandae
-                                                iusto optio!
-                                            </p>
-                                        </article>
-                                    </details>
-                                </li>
-                                <li>
-                                    <details class="group rounded-md bg-[#E9F5FC]"
-                                        style="box-shadow: 2px 4px 12px 0px rgba(181, 184, 185, 0.14);">
-                                        <summary
-                                            class="flex items-center gap-3 px-3 py-3 font-medium marker:content-none hover:cursor-pointer">
-                                            <svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90"
-                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                class="fill-[#C9CCCE]" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd"
-                                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                                                </path>
-                                            </svg>
-                                            <span class="text-custom-blue font-nunito text-base font-medium">Sentiment
-                                                analysis</span>
-                                        </summary>
-
-                                        <article class="px-4 pb-4 flex justify-between text-sm">
-                                            <p class="text-green-400 font-bold w-2/4">Happy 😊 : 70% <br> <span
-                                                    class="font-normal text-custom-black">Lorem ipsum dolor sit amet
-                                                    consectetur adipisicing elit. Amet, dicta!</span></p>
-                                            <p class="text-blue-400 font-bold w-2/4">Neutral 😊 : 10% <br> <span
-                                                    class="font-normal text-custom-black">Lorem ipsum dolor sit amet
-                                                    consectetur adipisicing elit. Labore, natus?</span></p>
-                                            <p class="text-red-400 font-bold w-2/4">Angry 😊 : 20% <br> <span
-                                                    class="font-normal text-custom-black">Lorem ipsum dolor sit amet
-                                                    consectetur adipisicing elit. Saepe, nam.</span></p>
-                                        </article>
-                                    </details>
-                                </li>
-                                <li class="flex gap-4">
-                                    <select name="translate" id="translate" class="text-[#C9CCCE] hover:bg-[#4B4D4E] rounded-md font-nunito text-sm font-medium w-5/6 block px-3 py-3 bg-[#333333]">
-                                        <option value="" selected disabled>Select languange</option>
-                                        <option value="">Indonesia</option>
-                                        <option value="">English</option>
-                                        <option value="">Espanyol</option>
-                                    </select>
-                                    <button type="submit" id="ask"
-                                        class="px-[16px] py-[8px] flex justify-center items-center font-nunito  text-custom-blue text-base bg-[#333333] hover:bg-[#4B4D4E] rounded-md cursor-pointer w-1/6" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);">
-                                        <img src="{{ asset('assets/translate.svg') }}" alt="" class="mr-2">Translate
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- customer questions -->
-                <div class="prompt flex gap-0 items-start mb-5">
-                    <img src="{{ asset('assets/profile.svg') }}" alt="" class="w-12 pr-1.5">
-                    <div class="flex flex-col">
-                        <p class="text text-left font-nunito text-base text-wrap">Edwin kocak Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo similique vel nulla esse laudantium debitis, quisquam dicta. Impedit natus eos cupiditate voluptatibus quia nihil tempore modi corporis adipisci doloremque sint aliquid laboriosam numquam fuga laborum hic amet, quam minima obcaecati consequuntur veritatis commodi? Repellendus maxime assumenda fugit, deserunt illum eligendi!</p>
-                        <button class="copy-button text-custom-grey focus:outline-none mt-1 flex text-sm gap-2">
-                        Recieved 16:50 - 15/06/2024
-                            <svg width="18" height="18" viewBox="0 0 24 24" class="fill-none hover:fill-custom-hover" xmlns="http://www.w3.org/2000/svg"><path opacity="0.16" d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="fill-[#66C2FF] hover:fill-custom-hover"/><path d="M16 3H4V16" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        </button>
-                        </div>
-                </div>
 
                 <!-- response from fiori -->
                 <div class="response flex gap-2 mb-5 items-start">
                     <img src="{{ asset('assets/Fiori.svg') }}" alt="" class="w-10">
                     <div class="">
+                    <p class="text-custom-blue font-nunito text-base font-medium">Sentiment analysis</p>
+                    <p class="text text-left font-nunito text-custom-black text-base text-wrap mb-2">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo similique vel nulla esse laudantium debitis, quisquam dicta. Impedit natus eos cupiditate voluptatibus quia nihil tempore modi corporis adipisci doloremque sint aliquid laboriosam numquam fuga laborum hic amet, quam minima obcaecati consequuntur veritatis commodi? Repellendus maxime assumenda fugit, deserunt illum eligendi!</p>
+                    <p></p>
                         <form id="form-prompt" action="/fiori" method="POST" class="flex flex-col gap-3 mb-4">
+                        <p class="text-custom-blue font-nunito text-base font-medium -mb-3">Answer based on sentiment analysis</p>
                             @csrf
-                            <textarea id="prompt" name="prompt" class="text-left w-[672px] bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-sm resize-none placeholder:text-custom-blue text-wrap min-h-40" placeholder="Insert message"></textarea>
-                            <button type="submit" id="promt"
+                            <textarea id="prompt" name="prompt" class="text-left w-[672px] bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-sm resize-none placeholder:text-custom-blue placeholder:opacity-70 text-wrap min-h-40" placeholder="Insert message"></textarea>
+                            <button type="submit" id="prompt"
                                 class="px-[16px] py-[8px] flex justify-center font-nunito text-base text-custom-white bg-custom-blue hover:bg-custom-hover rounded-md cursor-pointer" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);">
                                 Send message
                             </button>
@@ -175,7 +71,7 @@
                                                 </path>
                                             </svg>
                                             <span class="text-custom-blue font-nunito text-base font-medium">
-                                                Summarized</span>
+                                                Summary</span>
                                         </summary>
 
                                         <article class="px-4 pb-4 text-sm">
@@ -202,7 +98,7 @@
                                         </article>
                                     </details>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <details class="group rounded-md bg-[#E9F5FC]"
                                         style="box-shadow: 2px 4px 12px 0px rgba(181, 184, 185, 0.14);">
                                         <summary
@@ -230,7 +126,7 @@
                                                     consectetur adipisicing elit. Saepe, nam.</span></p>
                                         </article>
                                     </details>
-                                </li>
+                                </li> -->
                                 <li class="flex gap-4">
                                     <select name="translate" id="translate" class="text-[#C9CCCE] hover:bg-[#4B4D4E] rounded-md font-nunito text-sm font-medium w-5/6 block px-3 py-3 bg-[#333333]">
                                         <option value="" selected disabled>Select languange</option>
@@ -272,7 +168,7 @@
 
     <script>
         $(document).ready(function() {
-            const promptInput = document.getElementById('manual-answer');
+        const promptInput = document.getElementById('manual-answer');
         const askButton = document.getElementById('manual-btn');
 
         // Initial validation on page load
@@ -360,17 +256,21 @@
                     });
 
                     ulResponseSummary += '</ul>'
-                   
-                   
-                    
-                                        
+                                       
                     //populate sending prompt
                     var newPrompt =
-                        '<div class="prompt flex gap-0 items-start mb-5">' +
-                        '<img src="{{ asset('assets/profile.svg') }}" alt="" class="w-12 pr-1.5">' +
-                        '<p class="text-left font-nunito text-base text-wrap">' +
-                        promptValue +
-                        '</p>' +
+                        '<div class="prompt flex gap-0 items-start mb-5">'+
+                            '<img src="{{ asset('assets/profile.svg') }}" alt="" class="w-12 pr-1.5">'+
+                            '<div class="flex flex-col">'+
+                                '<p class="text text-left font-nunito text-base text-wrap">'+
+                                promptValue +
+                                '</p>'+
+                                '<button class="copy-button text-custom-grey focus:outline-none mt-1 flex text-sm gap-2">'+
+                                'Recieved 16:50 - 15/06/2024'+
+                                    '<svg width="18" height="18" viewBox="0 0 24 24" class="fill-none hover:fill-custom-hover" xmlns="http://www.w3.org/2000/svg"><path opacity="0.16" d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="fill-[#66C2FF] hover:fill-custom-hover"/><path d="M16 3H4V16" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'+
+                                    '</svg>'+
+                                '</button>'+
+                            '</div>'+
                         '</div>';
                     $('.response:last').after(newPrompt);
 
@@ -378,49 +278,58 @@
                     //populate response
                     var newResponse =
                         '<div class="response flex gap-2 mb-5 items-start">' +
-                        '<img src="{{ asset('assets/Fiori.svg') }}" alt="" class="w-10">' +
-                        '<div class="">' +
-                        '<p class="response-text text-left font-nunito text-base text-wrap mb-2">' +
-                        res+
-                        '</p>' +
-                        '<div class="dropdown">' +
-                        '<ul class="flex flex-col gap-4">' +
-                        '<li>' +
-                        '<details class="group rounded-md bg-[#E9F5FC]" style="box-shadow: 2px 4px 12px 0px rgba(181, 184, 185, 0.14);">' +
-                        '<summary class="flex items-center gap-3 px-3 py-3 font-medium marker:content-none hover:cursor-pointer">' +
-                        '<svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-[#C9CCCE]" viewBox="0 0 16 16">' +
-                        '<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>' +
-                        '</svg>' +
-                        '<span class="text-custom-blue font-nunito text-base font-medium">Summary</span>' +
-                        '</summary>' +
-                        '<article class="px-4 pb-4 text-sm">' +
-                        '<p>' +
-                        ulPromptSummary+
-                        ulResponseSummary+
-                        '</p>' +
-                        '</article>' +
-                        '</details>' +
-                        '</li>' +
-                        '<li>' +
-                        '<details class="group rounded-md bg-[#E9F5FC]" style="box-shadow: 2px 4px 12px 0px rgba(181, 184, 185, 0.14);">' +
-                        '<summary class="flex items-center gap-3 px-3 py-3 font-medium marker:content-none hover:cursor-pointer">' +
-                        '<svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-[#C9CCCE]" viewBox="0 0 16 16">' +
-                        '<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>' +
-                        '</svg>' +
-                        '<span class="text-custom-blue font-nunito text-base font-medium">Sentiment analysis</span>' +
-                        '</summary>' +
-                        '<article class="px-4 pb-4 flex justify-between text-sm">' +
-                        '<p class="font-w-2/4">' +
-                        res2
-                        '</p>'+
-                        '</article>' +
-                        '</details>' +
-                        '</li>' +
-                        '</ul>' +
-                        '</div>' +
-                        '</div>' +
+                            '<img src="{{ asset('assets/Fiori.svg') }}" alt="" class="w-10">' +
+                            '<div class="">' +
+                            '<p class="text-custom-blue font-nunito text-base font-medium">Sentiment analysis</p>'+
+                            '<p class="text text-left font-nunito text-custom-black text-base text-wrap mb-2">'+
+                            res2+
+                            '</p>'+
+                                '<div class="flex flex-col mb-3">' +
+                                    '<p class="response-text text-left w-[672px] bg-[#E8EAEC] border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-[#919394] text-sm resize-none text-wrap min-h-40">'+
+                                    res+
+                                    '</p>' +
+                                    '<button class="copy-button text-custom-grey focus:outline-none mt-1 flex text-sm gap-2">' +
+                                        'Sent 16:50 - 15/06/2024' +
+                                        '<svg width="18" height="18" viewBox="0 0 24 24" class="fill-none hover:fill-custom-hover" xmlns="http://www.w3.org/2000/svg">' +
+                                            '<path opacity="0.16" d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="fill-[#66C2FF] hover:fill-custom-hover"/>' +
+                                            '<path d="M16 3H4V16" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+                                            '<path d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+                                        '</svg>' +
+                                    '</button>' +
+                                '</div>' +
+                                '<div class="dropdown">' +
+                                    '<ul class="flex flex-col gap-4">' +
+                                        '<li>' +
+                                            '<details class="group rounded-md bg-[#E9F5FC]" style="box-shadow: 2px 4px 12px 0px rgba(181, 184, 185, 0.14);">' +
+                                                '<summary class="flex items-center gap-3 px-3 py-3 font-medium marker:content-none hover:cursor-pointer">' +
+                                                    '<svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-[#C9CCCE]" viewBox="0 0 16 16">' +
+                                                        '<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>' +
+                                                    '</svg>' +
+                                                    '<span class="text-custom-blue font-nunito text-base font-medium">Summarized</span>' +
+                                                '</summary>' +
+                                                '<article class="px-4 pb-4 text-sm">' +
+                                                    '<p>' +
+                                                    ulPromptSummary+
+                                                    ulResponseSummary+
+                                                    '</p>' +
+                                                '</article>' +
+                                            '</details>' +
+                                        '</li>' +
+                                        '<li class="flex gap-4">' +
+                                            '<select name="translate" id="translate" class="text-[#C9CCCE] hover:bg-[#4B4D4E] rounded-md font-nunito text-sm font-medium w-5/6 block px-3 py-3 bg-[#333333]">' +
+                                                '<option value="" selected disabled>Select language</option>' +
+                                                '<option value="">Indonesia</option>' +
+                                                '<option value="">English</option>' +
+                                                '<option value="">Espanyol</option>' +
+                                            '</select>' +
+                                            '<button type="submit" id="ask" class="px-[16px] py-[8px] flex justify-center items-center font-nunito text-custom-blue text-base bg-[#333333] hover:bg-[#4B4D4E] rounded-md cursor-pointer w-1/6" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);">' +
+                                                '<img src="{{ asset('assets/translate.svg') }}" alt="" class="mr-2">Translate' +
+                                            '</button>' +
+                                        '</li>' +
+                                    '</ul>' +
+                                '</div>' +
+                            '</div>' +
                         '</div>';
-
 
                     $('.prompt:last').after(newResponse);
                 
