@@ -1,4 +1,5 @@
-    <!-- Navbar -->
+@if(Auth::check())
+<!-- Navbar -->
     <div class="navbar w-fit p-10 bg-[#212121] fixed h-screen flex flex-col justify-between items-start text-white z-50">
 
         <img src="{{ asset('assets/Logo.svg') }}" alt="" class="mb-3">
@@ -19,6 +20,8 @@
 
         <a href="" class="mt-auto flex gap-1 items-center w-[119px]">
             <img src="{{ asset('assets/profile.svg') }}" alt="">
-            <h1 class="text-wrap font-normal">Jenege Wong</h1>
+            <h1 class="text-wrap font-normal">{{ Auth::user()->name }}</h1>
         </a>
     </div>
+
+@endif
