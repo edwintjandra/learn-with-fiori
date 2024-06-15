@@ -10,6 +10,8 @@ Route::get('/signin', [UserController::class, 'signinPage'])->name('signinPage')
 Route::post('/signin', [UserController::class, 'signin'])->name('signin');
 Route::middleware('auth')->post('/profile', [UserController::class, 'updateProfile'])->name('updateProfile');
 
+Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+
 Route::get('/fiori',[FioriController::class,'index'])->name('fiori.index');
 Route::post('/fiori',[FioriController::class,'handleMessage'])->name('fiori.handle.message');
 

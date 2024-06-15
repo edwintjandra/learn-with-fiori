@@ -66,4 +66,10 @@ class UserController extends Controller
     
         $user->save();
     }
+
+    public function profile()
+{
+    return view('profile');
+}
+
 }
