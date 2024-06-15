@@ -12,6 +12,8 @@
         rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/Fiori.svg') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
 </head>
 
 <body class="bg-gradient-to-r from-[#EEF2F5] to-[#E7F5FF]">
@@ -335,7 +337,24 @@
             });
         });
 
-      
+        $('.download').click(function (e) {
+            e.preventDefault();
+
+            const promptSummary = $('.dropdown article').html().trim(); 
+            const content = `
+                <div style="padding: 10px;">
+                    <p><strong>Customer Question:</strong></p>
+                    <p>${$('.prompt .text').text().trim()}</p>
+                    <p><strong>Response from Fiori:</strong></p>
+                    <p>${$('.response .text').text().trim()}</p>
+                    <p><strong>Prompt Summary:</strong></p>
+                    <ul style="list-style-type: none; padding-left: 20px; margin-top: 5px;">${promptSummary}</ul>
+                </div>
+            `;
+
+            html2pdf().from(content).save('chat.pdf');
+        });
+
 
 
         });
