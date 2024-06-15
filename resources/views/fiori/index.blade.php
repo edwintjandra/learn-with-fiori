@@ -181,6 +181,21 @@
                         "prompt": $("#prompt").val()
                     }
                 }).done(function(res) {
+                    
+                    //sentiment analysis
+                    $.ajax({
+                    url: $(this).attr('action'),
+                    method: $(this).attr('method'),
+                    headers: {
+                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                    },
+                    data: {
+                        "prompt": "provide sentiment analysis based on the question, choose one emotion and why you chose so, answer based on the question's language "+ promptValue
+                    }
+                    }).done(function(res2) {
+                        
+                   
+
                     //javascript summarizer class
                     var summarizer = new JsSummarize({
                         returnCount: 5 // Request a summary of 3 sentences
@@ -258,9 +273,9 @@
                         '<span class="text-custom-blue font-nunito text-base font-medium">Sentiment analysis</span>' +
                         '</summary>' +
                         '<article class="px-4 pb-4 flex justify-between text-sm">' +
-                        '<p class="text-green-400 font-bold w-2/4">Happy 😊 : 70% <br> <span class="font-normal text-custom-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, dicta!</span></p>' +
-                        '<p class="text-blue-400 font-bold w-2/4">Neutral 😊 : 10% <br> <span class="font-normal text-custom-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, natus?</span></p>' +
-                        '<p class="text-red-400 font-bold w-2/4">Angry 😊 : 20% <br> <span class="font-normal text-custom-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, nam.</span></p>' +
+                        '<p class="font-w-2/4">' +
+                        res2
+                        '</p>'+
                         '</article>' +
                         '</details>' +
                         '</li>' +
@@ -279,6 +294,8 @@
                     // Re-enable the form elements
                     $("#prompt").prop('disabled', false);
                     $("#ask").prop('disabled', false);
+                    })
+
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     console.log("error, request failed");
                     // Re-enable the form elements
