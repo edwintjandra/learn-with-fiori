@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Sign Up</title>
     @vite('resources/css/app.css')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/Fiori.svg') }}">
+    <link rel="icon" type="image/x-icon" href="{{ secure_asset('assets/Fiori.svg') }}">
     <style>
         .hidden {
             display: none;
@@ -19,7 +20,7 @@
 <section class="bg-gradient-to-r from-[#EEF2F5] to-[#E7F5FF]">
     <form class="flex flex-col gap-2 justify-center items-center h-screen w-screen" method="POST" action="{{ route('signup') }}">
         @csrf
-        <img src="{{ asset('assets/Fiori.svg') }}" alt="">
+        <img src="{{ secure_asset('assets/Fiori.svg') }}" alt="">
         <h1 class="font-nunito text-3xl font-medium text-custom-black">Sign up</h1>
         <div class="flex flex-col gap-1">
             <label for="name" class="block font-nunito text-base text-custom-black">Name</label>
@@ -51,7 +52,7 @@
             <div class="relative">
                <input type="password" id="cpassword" class="bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-sm w-[360px] placeholder:text-custom-blue" placeholder="Enter your password">
                <button type="button" id="ctogglePassword" class="absolute inset-y-0 right-0 flex items-center px-3 focus:outline-none">
-                   <img id="cpasswordIcon" src="/assets/eye-close.svg" class="h-5 w-5 text-gray-500">
+                   <img id="cpasswordIcon" src="{{ secure_asset('assets/eye-close.svg') }}" class="h-5 w-5 text-gray-500">
                </button>
             </div>
             <p class="text-custom-red font-nunito text-sm hidden" id="cpasswordError">Password Not Match!</p>
@@ -64,6 +65,6 @@
 
 </section>
 
-<script src="{{ asset('js/signup.js') }}"></script>    
+<script src="{{ secure_asset('js/signup.js') }}"></script>    
 </body>
 </html>
