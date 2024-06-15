@@ -40,7 +40,7 @@
         <div class="flex gap-2 mb-5 items-start">
             <img src="{{ asset('assets/Fiori.svg') }}" alt="" class="w-10">
             <div class="">
-                <p class="text-left font-nunito text-base text-wrap mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam rem voluptas incidunt laudantium! Error excepturi sed repellendus corporis exercitationem ut ipsam. Nisi facere neque officiis voluptatum commodi. Quia, a fugit! Tenetur minima distinctio ipsum alias sunt, dignissimos commodi excepturi voluptatum neque, nostrum nulla vero iusto suscipit earum? Dicta, nesciunt sapiente.</p>
+                <p class="text-left font-nunito text-base text-wrap mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam rem voluptas incidunt laudantium! Error excepturi sed repellendus corporis exercitationem ut ipsam. Nisi facere neque officiis voluptatum commodi. Quia, a fugit! Tenetur minima distinctio ipsum alias sunt, dignissimos commodi excepturi voluptatum neque, nostrum nulla vero iusto suscipit earum? Dicta, nesciunt sapiente asjhdaksdhk.</p>
                 <div class="dropdown">
                     <ul class="flex flex-col gap-4">
                         <li>
