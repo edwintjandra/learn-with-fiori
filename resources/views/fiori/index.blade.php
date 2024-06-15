@@ -47,11 +47,11 @@
                     <p class="text-custom-blue font-nunito text-base font-medium">Sentiment analysis</p>
                     <p class="text text-left font-nunito text-custom-black text-base text-wrap mb-2">Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo similique vel nulla esse laudantium debitis, quisquam dicta. Impedit natus eos cupiditate voluptatibus quia nihil tempore modi corporis adipisci doloremque sint aliquid laboriosam numquam fuga laborum hic amet, quam minima obcaecati consequuntur veritatis commodi? Repellendus maxime assumenda fugit, deserunt illum eligendi!</p>
                     <p></p>
-                        <form id="form-prompt" action="/fiori" method="POST" class="flex flex-col gap-3 mb-4">
+                        <form  class="flex flex-col gap-3 mb-4">
                         <p class="text-custom-blue font-nunito text-base font-medium -mb-3">Answer based on sentiment analysis</p>
                             @csrf
-                            <textarea id="prompt" name="prompt" class="text-left w-[672px] bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-sm resize-none placeholder:text-custom-blue placeholder:opacity-70 text-wrap min-h-40" placeholder="Insert message"></textarea>
-                            <button type="submit" id="prompt"
+                            <textarea class="text-left w-[672px] bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-sm resize-none placeholder:text-custom-blue placeholder:opacity-70 text-wrap min-h-40" placeholder="Insert message"></textarea>
+                            <button 
                                 class="px-[16px] py-[8px] flex justify-center font-nunito text-base text-custom-white bg-custom-blue hover:bg-custom-hover rounded-md cursor-pointer" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);">
                                 Send message
                             </button>
@@ -145,10 +145,11 @@
                 </div>
 
                 <div class="w-full flex justify-center fixed bottom-10 right-0 left-24">
-                    <form action="">
+                    <form id="form-prompt" action="/fiori" method="POST">
                         <div class="flex flex-row gap-3 items-end">
-                            <input type="text" id="manual-answer" class="bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-base w-[640px] placeholder:text-custom-blue text-wrap resize-none" placeholder="Insert message here"></input>
-                            <button id="manual-btn" class="px-[16px] py-[8px] h-max flex justify-center font-nunito text-base text-custom-white bg-custom-blue rounded-md hover:bg-custom-hover disabled:opacity-50 disabled:cursor-not-allowed" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);" disabled>
+                            @csrf
+                            <input id="prompt" name="prompt"  type="text" class="bg-custom-bg-input border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-custom-black text-base w-[640px] placeholder:text-custom-blue text-wrap resize-none" placeholder="Insert message here"></input>
+                            <button type="submit" id="prompt"  class="px-[16px] py-[8px] h-max flex justify-center font-nunito text-base text-custom-white bg-custom-blue rounded-md hover:bg-custom-hover disabled:opacity-50 disabled:cursor-not-allowed" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);" >
                             Send
                             </button>
                         </div> 
@@ -168,26 +169,10 @@
 
     <script>
         $(document).ready(function() {
-        const promptInput = document.getElementById('manual-answer');
-        const askButton = document.getElementById('manual-btn');
-
-        // Initial validation on page load
-        validateForm();
+         
         
-        // Add event listener for input changes
-        promptInput.addEventListener('input', validateForm);
-
-        // Function to validate form
-        function validateForm() {
-            let isValid = true;
-
-            if (promptInput.value.trim() === '') {
-                isValid = false;
-            }
-            askButton.disabled = !isValid;
-        }
-
-        const copyButtons = document.querySelectorAll('.copy-button');
+        
+    const copyButtons = document.querySelectorAll('.copy-button');
 
         copyButtons.forEach(button => {
             button.addEventListener('click', () => {
