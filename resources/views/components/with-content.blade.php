@@ -1,4 +1,4 @@
-<div class="content flex-grow flex flex-col mt-12 pb-28 h-[600px] items-center overflow-y-auto">
+<div class="prompts content flex-grow flex flex-col mt-12 pb-28 h-[600px] items-center overflow-y-auto">
     <div class="ml-48 flex-col w-[820px]">
         <!-- customer questions -->
         <div class="flex gap-0 items-start mb-5">
@@ -108,5 +108,7 @@
          
         
         </div>
+
+        
     </div>
 </div>
