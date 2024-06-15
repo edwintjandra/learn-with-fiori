@@ -128,14 +128,14 @@
                                     </details>
                                 </li> -->
                                 <li class="flex gap-4">
-                                    <select name="translate" id="translate" class="text-[#C9CCCE] hover:bg-[#4B4D4E] rounded-md font-nunito text-sm font-medium w-5/6 block px-3 py-3 bg-[#333333]">
+                                    <select name="translate" class="prompt-translate text-[#C9CCCE] hover:bg-[#4B4D4E] rounded-md font-nunito text-sm font-medium w-5/6 block px-3 py-3 bg-[#333333]">
                                         <option value="" selected disabled>Select languange</option>
                                         <option value="">Indonesia</option>
                                         <option value="">English</option>
                                         <option value="">Espanyol</option>
                                     </select>
                                     <button type="submit" id="ask"
-                                        class="px-[16px] py-[8px] flex justify-center items-center font-nunito  text-custom-blue text-base bg-[#333333] hover:bg-[#4B4D4E] rounded-md cursor-pointer w-1/6" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);">
+                                        class="prompt-translate-submit px-[16px] py-[8px] flex justify-center items-center font-nunito  text-custom-blue text-base bg-[#333333] hover:bg-[#4B4D4E] rounded-md cursor-pointer w-1/6" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);">
                                         <img src="{{ asset('assets/translate.svg') }}" alt="" class="mr-2">Translate
                                     </button>
                                 </li>
@@ -172,7 +172,7 @@
          
         
         
-    const copyButtons = document.querySelectorAll('.copy-button');
+        const copyButtons = document.querySelectorAll('.copy-button');
 
         copyButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -182,158 +182,162 @@
             });
         });
 
-            $("#form-prompt").submit(function(event) {
-                event.preventDefault();
+        $("#form-prompt").submit(function(event) {
+            event.preventDefault();
 
-                var promptValue= $("#prompt").val();
-                $("#prompt").prop('disabled', true);
-                $("#ask").prop('disabled', true);
+            var promptValue= $("#prompt").val();
+            $("#prompt").prop('disabled', true);
+            $("#ask").prop('disabled', true);
 
-                $.ajax({
-                    url: $(this).attr('action'),
-                    method: $(this).attr('method'),
-                    headers: {
-                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
-                    },
-                    data: {
-                        "prompt": $("#prompt").val()
-                    }
-                }).done(function(res) {
-                    
-                    //sentiment analysis
-                    $.ajax({
-                    url: $(this).attr('action'),
-                    method: $(this).attr('method'),
-                    headers: {
-                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
-                    },
-                    data: {
-                        "prompt": "provide sentiment analysis based on the question, choose one emotion and why you chose so, answer based on the question's language "+ promptValue
-                    }
-                    }).done(function(res2) {
-                        
-                   
-
-                    //javascript summarizer class
-                    var summarizer = new JsSummarize({
-                        returnCount: 5 // Request a summary of 3 sentences
-                    });
-
-                    //prompt summary
-                    var promptSummaryArray = summarizer.summarize("prompt summarize",promptValue);
-                    var ulPromptSummary = '<ul class="list-disc">';
-                    ulPromptSummary+='Prompt Summary';
-                    // Summarize the response
-                    promptSummaryArray.forEach(function(summary) {
-                        ulPromptSummary += '<li>' + summary + '</li>';
-                    });
-
-                    ulPromptSummary+='</ul> </br>'; 
-
-                    //response summary
-                    var responseSummaryArray = summarizer.summarize("response summarizer",res);
-                    // Summarize the response
-                    var ulResponseSummary = '<ul class="list-disc">';
-                    ulResponseSummary+='Response Summary';
-
-                    responseSummaryArray.forEach(function(summary) {
-                        ulResponseSummary += '<li>' + summary + '</li>';
-                    });
-
-                    ulResponseSummary += '</ul>'
-                                       
-                    //populate sending prompt
-                    var newPrompt =
-                        '<div class="prompt flex gap-0 items-start mb-5">'+
-                            '<img src="{{ asset('assets/profile.svg') }}" alt="" class="w-12 pr-1.5">'+
-                            '<div class="flex flex-col">'+
-                                '<p class="text text-left font-nunito text-base text-wrap">'+
-                                promptValue +
-                                '</p>'+
-                                '<button class="copy-button text-custom-grey focus:outline-none mt-1 flex text-sm gap-2">'+
-                                'Recieved 16:50 - 15/06/2024'+
-                                    '<svg width="18" height="18" viewBox="0 0 24 24" class="fill-none hover:fill-custom-hover" xmlns="http://www.w3.org/2000/svg"><path opacity="0.16" d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="fill-[#66C2FF] hover:fill-custom-hover"/><path d="M16 3H4V16" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'+
-                                    '</svg>'+
-                                '</button>'+
-                            '</div>'+
-                        '</div>';
-                    $('.response:last').after(newPrompt);
-
-
-                    //populate response
-                    var newResponse =
-                        '<div class="response flex gap-2 mb-5 items-start">' +
-                            '<img src="{{ asset('assets/Fiori.svg') }}" alt="" class="w-10">' +
-                            '<div class="">' +
-                            '<p class="text-custom-blue font-nunito text-base font-medium">Sentiment analysis</p>'+
-                            '<p class="text text-left font-nunito text-custom-black text-base text-wrap mb-2">'+
-                            res2+
-                            '</p>'+
-                                '<div class="flex flex-col mb-3">' +
-                                    '<p class="response-text text-left w-[672px] bg-[#E8EAEC] border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-[#919394] text-sm resize-none text-wrap min-h-40">'+
-                                    res+
-                                    '</p>' +
-                                    '<button class="copy-button text-custom-grey focus:outline-none mt-1 flex text-sm gap-2">' +
-                                        'Sent 16:50 - 15/06/2024' +
-                                        '<svg width="18" height="18" viewBox="0 0 24 24" class="fill-none hover:fill-custom-hover" xmlns="http://www.w3.org/2000/svg">' +
-                                            '<path opacity="0.16" d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="fill-[#66C2FF] hover:fill-custom-hover"/>' +
-                                            '<path d="M16 3H4V16" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
-                                            '<path d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
-                                        '</svg>' +
-                                    '</button>' +
-                                '</div>' +
-                                '<div class="dropdown">' +
-                                    '<ul class="flex flex-col gap-4">' +
-                                        '<li>' +
-                                            '<details class="group rounded-md bg-[#E9F5FC]" style="box-shadow: 2px 4px 12px 0px rgba(181, 184, 185, 0.14);">' +
-                                                '<summary class="flex items-center gap-3 px-3 py-3 font-medium marker:content-none hover:cursor-pointer">' +
-                                                    '<svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-[#C9CCCE]" viewBox="0 0 16 16">' +
-                                                        '<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>' +
-                                                    '</svg>' +
-                                                    '<span class="text-custom-blue font-nunito text-base font-medium">Summarized</span>' +
-                                                '</summary>' +
-                                                '<article class="px-4 pb-4 text-sm">' +
-                                                    '<p>' +
-                                                    ulPromptSummary+
-                                                    ulResponseSummary+
-                                                    '</p>' +
-                                                '</article>' +
-                                            '</details>' +
-                                        '</li>' +
-                                        '<li class="flex gap-4">' +
-                                            '<select name="translate" id="translate" class="text-[#C9CCCE] hover:bg-[#4B4D4E] rounded-md font-nunito text-sm font-medium w-5/6 block px-3 py-3 bg-[#333333]">' +
-                                                '<option value="" selected disabled>Select language</option>' +
-                                                '<option value="">Indonesia</option>' +
-                                                '<option value="">English</option>' +
-                                                '<option value="">Espanyol</option>' +
-                                            '</select>' +
-                                            '<button type="submit" id="ask" class="px-[16px] py-[8px] flex justify-center items-center font-nunito text-custom-blue text-base bg-[#333333] hover:bg-[#4B4D4E] rounded-md cursor-pointer w-1/6" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);">' +
-                                                '<img src="{{ asset('assets/translate.svg') }}" alt="" class="mr-2">Translate' +
-                                            '</button>' +
-                                        '</li>' +
-                                    '</ul>' +
-                                '</div>' +
-                            '</div>' +
-                        '</div>';
-
-                    $('.prompt:last').after(newResponse);
+            $.ajax({
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                },
+                data: {
+                    "prompt": $("#prompt").val()
+                }
+            }).done(function(res) {
                 
-                    //empty the prompt
-                    $("#prompt").val('');
+                //sentiment analysis
+                $.ajax({
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                },
+                data: {
+                    "prompt": "provide sentiment analysis based on the question, choose one emotion and why you chose so, answer based on the question's language "+ promptValue
+                }
+                }).done(function(res2) {
+                    
+                
 
-
-                    // Re-enable the form elements
-                    $("#prompt").prop('disabled', false);
-                    $("#ask").prop('disabled', false);
-                    })
-
-                }).fail(function(jqXHR, textStatus, errorThrown) {
-                    console.log("error, request failed");
-                    // Re-enable the form elements
-                    $("#prompt").prop('disabled', false);
-                    $("#ask").prop('disabled', false);
+                //javascript summarizer class
+                var summarizer = new JsSummarize({
+                    returnCount: 5 // Request a summary of 3 sentences
                 });
+
+                //prompt summary
+                var promptSummaryArray = summarizer.summarize("prompt summarize",promptValue);
+                var ulPromptSummary = '<ul class="list-disc">';
+                ulPromptSummary+='Prompt Summary';
+                // Summarize the response
+                promptSummaryArray.forEach(function(summary) {
+                    ulPromptSummary += '<li>' + summary + '</li>';
+                });
+
+                ulPromptSummary+='</ul> </br>'; 
+
+                //response summary
+                var responseSummaryArray = summarizer.summarize("response summarizer",res);
+                // Summarize the response
+                var ulResponseSummary = '<ul class="list-disc">';
+                ulResponseSummary+='Response Summary';
+
+                responseSummaryArray.forEach(function(summary) {
+                    ulResponseSummary += '<li>' + summary + '</li>';
+                });
+
+                ulResponseSummary += '</ul>'
+                                    
+                //populate sending prompt
+                var newPrompt =
+                    '<div class="prompt flex gap-0 items-start mb-5">'+
+                        '<img src="{{ asset('assets/profile.svg') }}" alt="" class="w-12 pr-1.5">'+
+                        '<div class="flex flex-col">'+
+                            '<p class="text text-left font-nunito text-base text-wrap">'+
+                            promptValue +
+                            '</p>'+
+                            '<button class="copy-button text-custom-grey focus:outline-none mt-1 flex text-sm gap-2">'+
+                            'Recieved 16:50 - 15/06/2024'+
+                                '<svg width="18" height="18" viewBox="0 0 24 24" class="fill-none hover:fill-custom-hover" xmlns="http://www.w3.org/2000/svg"><path opacity="0.16" d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="fill-[#66C2FF] hover:fill-custom-hover"/><path d="M16 3H4V16" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'+
+                                '</svg>'+
+                            '</button>'+
+                        '</div>'+
+                    '</div>';
+                $('.response:last').after(newPrompt);
+
+
+                //populate response
+                var newResponse =
+                    '<div class="response flex gap-2 mb-5 items-start">' +
+                        '<img src="{{ asset('assets/Fiori.svg') }}" alt="" class="w-10">' +
+                        '<div class="">' +
+                        '<p class="text-custom-blue font-nunito text-base font-medium">Sentiment analysis</p>'+
+                        '<p class="text text-left font-nunito text-custom-black text-base text-wrap mb-2">'+
+                        res2+
+                        '</p>'+
+                            '<div class="flex flex-col mb-3">' +
+                                '<p class="response-text text-left w-[672px] bg-[#E8EAEC] border border-custom-grey pl-2 pr-[16px] py-[8px] rounded-md text-[#919394] text-sm resize-none text-wrap min-h-40">'+
+                                res+
+                                '</p>' +
+                                '<button class="copy-button text-custom-grey focus:outline-none mt-1 flex text-sm gap-2">' +
+                                    'Sent 16:50 - 15/06/2024' +
+                                    '<svg width="18" height="18" viewBox="0 0 24 24" class="fill-none hover:fill-custom-hover" xmlns="http://www.w3.org/2000/svg">' +
+                                        '<path opacity="0.16" d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="fill-[#66C2FF] hover:fill-custom-hover"/>' +
+                                        '<path d="M16 3H4V16" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+                                        '<path d="M8 7H20V19C20 19.5304 19.7893 20.0391 19.4142 20.4142C19.0391 20.7893 18.5304 21 18 21H10C9.46957 21 8.96086 20.7893 8.58579 20.4142C8.21071 20.0391 8 19.5304 8 19V7Z" class="stroke-[#919394] hover:stroke-[#66C2FF]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+                                    '</svg>' +
+                                '</button>' +
+                            '</div>' +
+                            '<div class="dropdown">' +
+                                '<ul class="flex flex-col gap-4">' +
+                                    '<li>' +
+                                        '<details class="group rounded-md bg-[#E9F5FC]" style="box-shadow: 2px 4px 12px 0px rgba(181, 184, 185, 0.14);">' +
+                                            '<summary class="flex items-center gap-3 px-3 py-3 font-medium marker:content-none hover:cursor-pointer">' +
+                                                '<svg class="w-5 h-5 text-gray-500 transition group-open:rotate-90" xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-[#C9CCCE]" viewBox="0 0 16 16">' +
+                                                    '<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>' +
+                                                '</svg>' +
+                                                '<span class="text-custom-blue font-nunito text-base font-medium">Summarized</span>' +
+                                            '</summary>' +
+                                            '<article class="px-4 pb-4 text-sm">' +
+                                                '<p>' +
+                                                ulPromptSummary+
+                                                ulResponseSummary+
+                                                '</p>' +
+                                            '</article>' +
+                                        '</details>' +
+                                    '</li>' +
+                                    '<li class="flex gap-4">' +
+                                        '<select name="translate" class="prompt-translate text-[#C9CCCE] hover:bg-[#4B4D4E] rounded-md font-nunito text-sm font-medium w-5/6 block px-3 py-3 bg-[#333333]">' +
+                                            '<option value="" selected disabled>Select language</option>' +
+                                            '<option value="">Indonesia</option>' +
+                                            '<option value="">English</option>' +
+                                            '<option value="">Espanyol</option>' +
+                                        '</select>' +
+                                        '<button type="submit" id="ask" class="prompt-translate-submit px-[16px] py-[8px] flex justify-center items-center font-nunito text-custom-blue text-base bg-[#333333] hover:bg-[#4B4D4E] rounded-md cursor-pointer w-1/6" style="box-shadow: 2px 4px 12px 0px rgba(102, 194, 255, 0.24);">' +
+                                            '<img src="{{ asset('assets/translate.svg') }}" alt="" class="mr-2">Translate' +
+                                        '</button>' +
+                                    '</li>' +
+                                '</ul>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+
+                $('.prompt:last').after(newResponse);
+            
+                //empty the prompt
+                $("#prompt").val('');
+
+
+                // Re-enable the form elements
+                $("#prompt").prop('disabled', false);
+                $("#ask").prop('disabled', false);
+                })
+
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.log("error, request failed");
+                // Re-enable the form elements
+                $("#prompt").prop('disabled', false);
+                $("#ask").prop('disabled', false);
             });
+        });
+
+      
+
+
         });
     </script>
 </body>
